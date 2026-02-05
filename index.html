@@ -7,17 +7,28 @@
     <style>
         body { font-family: sans-serif; background-color: #fff5f5; text-align: center; padding: 20px; color: #444; }
         .container { max-width: 400px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: #ff6b6b; font-size: 1.5rem; }
+        h1 { color: #ff6b6b; font-size: 1.5rem; margin-bottom: 25px; }
         .option { display: block; background: #fff; border: 2px solid #ffe3e3; margin: 10px 0; padding: 12px; border-radius: 10px; cursor: pointer; transition: 0.2s; position: relative; }
         input[type="radio"] { display: none; }
         input[type="radio"]:checked + span { background: #ff6b6b; color: white; display: block; margin: -12px; padding: 12px; border-radius: 8px; }
-        button { background: #ff6b6b; color: white; border: none; padding: 12px 30px; border-radius: 25px; font-size: 1rem; cursor: pointer; margin-top: 20px; width: 100%; }
+        button { background: #ff6b6b; color: white; border: none; padding: 12px 30px; border-radius: 25px; font-size: 1rem; cursor: pointer; margin-top: 20px; width: 100%; font-weight: bold; }
+        .name-section { margin-bottom: 20px; text-align: left; }
+        .name-input { width: 100%; padding: 12px; border: 2px solid #ffe3e3; border-radius: 10px; box-sizing: border-box; margin-top: 8px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>今天想吃什么 🍴</h1>
+        
         <form action="https://formspree.io/f/xkovwojp" method="POST">
+            <div class="name-section">
+                <label style="font-weight: bold;">你是谁呀：</label>
+                <input type="text" name="visitor_name" placeholder="请输入你的名字" required class="name-input">
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <p style="text-align: left; font-size: 0.9rem; color: #888;">选一个你想吃的：</p>
+
             <label class="option"><input type="radio" name="choice" value="Keyfi Istanbul" required><span>1. Keyfi Istanbul (Kebab)</span></label>
             <label class="option"><input type="radio" name="choice" value="酒街串巷"><span>2. 酒街串巷 (烧烤)</span></label>
             <label class="option"><input type="radio" name="choice" value="七里香泥炉烤肉"><span>3. 七里香泥炉烤肉 (东北大饭包)</span></label>
@@ -27,17 +38,8 @@
             <label class="option"><input type="radio" name="choice" value="Small Pot"><span>7. Small Pot (云南菜)</span></label>
             <label class="option"><input type="radio" name="choice" value="Pizza Maru"><span>8. Pizza Maru (披萨)</span></label>
             <label class="option"><input type="radio" name="choice" value="鄧一刀"><span>9. 鄧一刀 (刀削面)</span></label>
-            <button type="submit">选好了！告诉他</button>
-        <form action="https://formspree.io/f/xkovwojp" method="POST">
-            <div style="margin-bottom: 20px; text-align: left;">
-                <label for="name" style="display: block; margin-bottom: 8px; font-weight: bold;">你是谁呀：</label>
-                <input type="text" id="name" name="visitor_name" placeholder="请输入你的名字" required 
-                       style="width: 100%; padding: 10px; border: 2px solid #ffe3e3; border-radius: 10px; box-sizing: border-box;">
-            </div>
-            <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
 
-            <label class="option"><input type="radio" name="choice" value="Keyfi Istanbul" required><span>1. Keyfi Istanbul (Kebab)</span></label>
-            <button type="submit">选好了！告诉他</button>
+            <button type="submit">选好了！发送给对方</button>
         </form>
     </div>
 </body>
